@@ -46,6 +46,12 @@ const PHONE_DIGITS = "260956180824";
 const EMAIL = "umodoro@gmail.com";
 const WHATSAPP_URL = `https://wa.me/${PHONE_DIGITS}`;
 
+const openDemoModal = () => {
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent("open-demo-modal"));
+  }
+};
+
 function Nav() {
   return (
     <header className="absolute top-0 left-0 right-0 z-50">
@@ -61,12 +67,13 @@ function Nav() {
           <a href="#pricing" className="hover:text-white transition">Pricing</a>
           <a href="#how" className="hover:text-white transition">How It Works</a>
         </nav>
-        <a
-          href="#cta"
+        <button
+          type="button"
+          onClick={openDemoModal}
           className="rounded-full border border-[var(--gold)] bg-[var(--gold)] px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-[var(--ink)] transition hover:bg-transparent hover:text-[var(--gold)]"
         >
           Book Demo
-        </a>
+        </button>
       </div>
     </header>
   );
