@@ -647,13 +647,13 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="bg-[var(--ink)] border-t border-white/10 py-16 text-white">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[2fr_1fr_1fr] lg:px-10">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[2fr_1fr] lg:px-10">
         <div>
           <div className="font-display text-2xl font-bold">
             Umodoro<span className="gold-text">.</span>
           </div>
           <p className="mt-3 text-sm uppercase tracking-[0.2em] text-[var(--gold)]">
-            Zambia's Social-Media-Ready Virtual Property Tours
+            Interactive Virtual Property Tours
           </p>
           <p className="mt-5 max-w-md text-sm text-white/60">
             Helping properties stand out, build trust, and get more bookings.
@@ -663,6 +663,12 @@ function Footer() {
           <p className="text-xs uppercase tracking-[0.2em] text-white/50">Contact</p>
           <div className="mt-4 space-y-3">
             <a
+              href={`tel:${PHONE}`}
+              className="flex items-center gap-2 text-sm text-white/80 hover:text-[var(--gold)]"
+            >
+              <Phone className="h-4 w-4" /> {PHONE}
+            </a>
+            <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -671,27 +677,10 @@ function Footer() {
               <MessageCircle className="h-4 w-4" /> WhatsApp
             </a>
             <a
-              href="mailto:hello@umodoro.com"
+              href={`mailto:${EMAIL}`}
               className="flex items-center gap-2 text-sm text-white/80 hover:text-[var(--gold)]"
             >
-              <Mail className="h-4 w-4" /> Email
-            </a>
-          </div>
-        </div>
-        <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-white/50">Follow</p>
-          <div className="mt-4 space-y-3">
-            <a
-              href="#"
-              className="flex items-center gap-2 text-sm text-white/80 hover:text-[var(--gold)]"
-            >
-              <Facebook className="h-4 w-4" /> Facebook
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-2 text-sm text-white/80 hover:text-[var(--gold)]"
-            >
-              <Instagram className="h-4 w-4" /> Instagram
+              <Mail className="h-4 w-4" /> {EMAIL}
             </a>
           </div>
         </div>
