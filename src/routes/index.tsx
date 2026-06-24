@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState, useEffect, type FormEvent } from "react";
 import {
   ArrowRight,
   Check,
-  Sparkles,
   ShieldCheck,
   TrendingUp,
   Camera,
@@ -10,15 +10,15 @@ import {
   Share2,
   MessageCircle,
   Mail,
-  Facebook,
-  Instagram,
+  Phone,
   Star,
   Play,
   ArrowDown,
+  X,
+  Compass,
 } from "lucide-react";
-import tour1 from "@/assets/tour-1.jpg";
-import tour2 from "@/assets/tour-2.jpg";
-import tour3 from "@/assets/tour-3.jpg";
+import luxuryImg from "@/assets/luxury-guest-house.jpg";
+import deluxImg from "@/assets/delux-rental.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,7 +41,16 @@ export const Route = createFileRoute("/")({
 });
 
 const DEMO_URL = "https://msimbao.github.io/tourdemos/umodoro-demo-3/app-files/index.html";
-const WHATSAPP_URL = "https://wa.me/260000000000";
+const PHONE = "+260956180824";
+const PHONE_DIGITS = "260956180824";
+const EMAIL = "umodoro@gmail.com";
+const WHATSAPP_URL = `https://wa.me/${PHONE_DIGITS}`;
+
+const openDemoModal = () => {
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent("open-demo-modal"));
+  }
+};
 
 function Nav() {
   return (
@@ -58,12 +67,13 @@ function Nav() {
           <a href="#pricing" className="hover:text-white transition">Pricing</a>
           <a href="#how" className="hover:text-white transition">How It Works</a>
         </nav>
-        <a
-          href="#cta"
+        <button
+          type="button"
+          onClick={openDemoModal}
           className="rounded-full border border-[var(--gold)] bg-[var(--gold)] px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-[var(--ink)] transition hover:bg-transparent hover:text-[var(--gold)]"
         >
           Book Demo
-        </a>
+        </button>
       </div>
     </header>
   );
@@ -80,11 +90,7 @@ function Hero() {
       <Nav />
       <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-32 lg:grid-cols-2 lg:gap-16 lg:px-10 lg:pt-40">
         <div className="flex flex-col justify-center">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[11px] uppercase tracking-[0.18em] text-white/70 backdrop-blur">
-            <Sparkles className="h-3 w-3 text-[var(--gold)]" />
-            Zambia's Social-Media-Ready Property Tours
-          </div>
-          <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
+          <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
             Get More Bookings With{" "}
             <span className="gold-text italic">Interactive</span> Property Tours
           </h1>
@@ -94,13 +100,14 @@ function Hero() {
             websites.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#cta"
+            <button
+              type="button"
+              onClick={openDemoModal}
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--gold)] px-7 py-4 text-sm font-semibold text-[var(--ink)] shadow-[var(--shadow-gold)] transition hover:scale-[1.02]"
             >
               Book My Free Demo
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-            </a>
+            </button>
             <a
               href="#tours"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-4 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/5"
@@ -204,27 +211,42 @@ function BeforeAfter() {
         <h2 className="text-center font-display text-4xl font-bold tracking-tight md:text-5xl">
           From This<span className="text-[var(--muted-foreground)]">...</span>
         </h2>
-        <div className="mt-16 grid items-center gap-8 md:grid-cols-[1fr_auto_1fr]">
-          <div className="rounded-2xl border border-[var(--border)] bg-card p-10">
-            <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
+        <div className="mt-16 grid items-center gap-10 md:grid-cols-[1fr_auto_1fr]">
+          {/* Old Way: stacked angled social post cards */}
+          <div className="relative mx-auto h-[360px] w-full max-w-sm">
+            <p className="absolute -top-2 left-1/2 z-30 -translate-x-1/2 whitespace-nowrap rounded-full border border-[var(--border)] bg-card px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
               The Old Way
             </p>
-            <h3 className="mt-3 font-display text-2xl font-semibold">
-              Photos & Videos Only
-            </h3>
-            <ul className="mt-6 space-y-3 text-[var(--muted-foreground)]">
-              {[
-                "Static images",
-                "Easy to scroll past",
-                "Guests guess room layouts",
-                "Looks like every other listing",
-              ].map((t) => (
-                <li key={t} className="flex items-start gap-3">
-                  <span className="mt-2 h-1 w-1 rounded-full bg-[var(--muted-foreground)]" />
-                  {t}
-                </li>
-              ))}
-            </ul>
+            {[
+              { img: luxuryImg, rot: "-rotate-[8deg] -translate-x-6 translate-y-4", z: "z-10" },
+              { img: deluxImg, rot: "rotate-[6deg] translate-x-6 -translate-y-2", z: "z-20" },
+            ].map((c, i) => (
+              <div
+                key={i}
+                className={`absolute inset-0 mx-auto h-[320px] w-[260px] overflow-hidden rounded-2xl border border-[var(--border)] bg-card shadow-xl transition ${c.rot} ${c.z}`}
+              >
+                <div className="flex items-center gap-2 border-b border-[var(--border)] px-3 py-2">
+                  <div className="h-6 w-6 rounded-full bg-[var(--secondary)]" />
+                  <div className="flex-1">
+                    <div className="h-2 w-20 rounded-full bg-[var(--secondary)]" />
+                    <div className="mt-1 h-1.5 w-12 rounded-full bg-[var(--secondary)]" />
+                  </div>
+                </div>
+                <img
+                  src={c.img}
+                  alt=""
+                  className="h-[210px] w-full object-cover"
+                  loading="lazy"
+                />
+                <div className="space-y-1.5 p-3">
+                  <div className="h-1.5 w-3/4 rounded-full bg-[var(--secondary)]" />
+                  <div className="h-1.5 w-1/2 rounded-full bg-[var(--secondary)]" />
+                </div>
+              </div>
+            ))}
+            <div className="absolute bottom-0 left-1/2 z-30 -translate-x-1/2 translate-y-4 rounded-full bg-card/90 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[var(--muted-foreground)] backdrop-blur">
+              Just another social post
+            </div>
           </div>
 
           <div className="flex justify-center">
@@ -236,31 +258,40 @@ function BeforeAfter() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl border border-[var(--ink)] bg-[var(--ink)] p-10 text-white shadow-[var(--shadow-luxe)]">
-            <div
-              aria-hidden
-              className="absolute -right-20 -top-20 h-60 w-60 rounded-full opacity-20 blur-3xl"
-              style={{ background: "var(--gradient-gold)" }}
-            />
-            <p className="text-xs uppercase tracking-[0.2em] text-[var(--gold)]">
+          {/* Umodoro Way: 360 tour visual */}
+          <div className="relative mx-auto h-[360px] w-full max-w-sm">
+            <p className="absolute -top-2 left-1/2 z-30 -translate-x-1/2 whitespace-nowrap rounded-full bg-[var(--gold)] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--ink)]">
               The Umodoro Way
             </p>
-            <h3 className="mt-3 font-display text-2xl font-semibold">
-              Umodoro Property Tour
-            </h3>
-            <ul className="mt-6 space-y-3 text-white/80">
-              {[
-                "Interactive walkthrough",
-                "Explore every room",
-                "Shareable anywhere",
-                "Premium presentation",
-              ].map((t) => (
-                <li key={t} className="flex items-start gap-3">
-                  <Check className="mt-0.5 h-4 w-4 text-[var(--gold)]" />
-                  {t}
-                </li>
-              ))}
-            </ul>
+            <div className="relative h-[320px] w-full overflow-hidden rounded-2xl border border-[var(--ink)] shadow-[var(--shadow-luxe)]">
+              <img
+                src={luxuryImg}
+                alt="Interactive 360 tour"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
+              <button
+                type="button"
+                onClick={openDemoModal}
+                className="group absolute inset-0 flex flex-col items-center justify-center text-white"
+                aria-label="Start tour"
+              >
+                <span
+                  className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/80 bg-white/10 backdrop-blur transition group-hover:scale-105 group-hover:bg-[var(--gold)] group-hover:border-[var(--gold)] group-hover:text-[var(--ink)]"
+                >
+                  <Compass className="h-9 w-9" strokeWidth={1.5} />
+                </span>
+                <span className="mt-4 text-[10px] font-bold uppercase tracking-[0.3em]">
+                  360° Tour
+                </span>
+                <span className="mt-2 font-display text-2xl font-semibold">
+                  Start Tour
+                </span>
+              </button>
+            </div>
+            <div className="absolute bottom-0 left-1/2 z-30 -translate-x-1/2 translate-y-4 rounded-full bg-[var(--ink)] px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[var(--gold)]">
+              Step inside, instantly
+            </div>
           </div>
         </div>
         <p className="mt-14 text-center font-display text-3xl font-bold tracking-tight md:text-4xl">
@@ -323,19 +354,14 @@ function Stats() {
 function Gallery() {
   const tours = [
     {
-      img: tour2,
+      img: luxuryImg,
       title: "Luxury Guest House",
       url: "https://msimbao.github.io/tourdemos/umodoro-demo-2/app-files/index.html",
     },
     {
-      img: tour1,
-      title: "Boutique Lodge",
+      img: deluxImg,
+      title: "Delux Rental",
       url: "https://msimbao.github.io/tourdemos/umodoro-demo-1/app-files/index.html",
-    },
-    {
-      img: tour3,
-      title: "Safari Lodge",
-      url: "https://msimbao.github.io/tourdemos/safarilodge/index.html",
     },
   ];
   return (
@@ -354,7 +380,7 @@ function Gallery() {
             Step inside real properties. Each tour opens in a new tab.
           </p>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {tours.map((t) => (
             <a
               key={t.title}
@@ -458,12 +484,13 @@ function Pricing() {
             <p className="mt-4 text-[var(--muted-foreground)]">
               We visit your property and create a sample tour. No obligation.
             </p>
-            <a
-              href="#cta"
+            <button
+              type="button"
+              onClick={openDemoModal}
               className="mt-8 inline-flex w-full items-center justify-center rounded-full border border-[var(--ink)] bg-[var(--ink)] py-3.5 text-sm font-semibold text-white transition hover:bg-transparent hover:text-[var(--ink)]"
             >
               Book Free Demo
-            </a>
+            </button>
           </div>
 
           {/* Professional - highlighted */}
@@ -496,12 +523,13 @@ function Pricing() {
                 </li>
               ))}
             </ul>
-            <a
-              href="#cta"
+            <button
+              type="button"
+              onClick={openDemoModal}
               className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-[var(--gold)] py-3.5 text-sm font-semibold text-[var(--ink)] transition hover:scale-[1.01]"
             >
               Get Started
-            </a>
+            </button>
             <p className="mt-4 text-center text-xs text-white/60">
               One extra booking can pay for the entire tour.
             </p>
@@ -590,15 +618,14 @@ function FinalCTA() {
           your property stand out online.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={openDemoModal}
             className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--gold)] px-9 py-4 text-sm font-semibold text-[var(--ink)] shadow-[var(--shadow-gold)] transition hover:scale-[1.02]"
           >
             Book My Free Demo
             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-          </a>
+          </button>
           <a
             href={WHATSAPP_URL}
             target="_blank"
@@ -620,13 +647,13 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="bg-[var(--ink)] border-t border-white/10 py-16 text-white">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[2fr_1fr_1fr] lg:px-10">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[2fr_1fr] lg:px-10">
         <div>
           <div className="font-display text-2xl font-bold">
             Umodoro<span className="gold-text">.</span>
           </div>
           <p className="mt-3 text-sm uppercase tracking-[0.2em] text-[var(--gold)]">
-            Zambia's Social-Media-Ready Virtual Property Tours
+            Interactive Virtual Property Tours
           </p>
           <p className="mt-5 max-w-md text-sm text-white/60">
             Helping properties stand out, build trust, and get more bookings.
@@ -636,6 +663,12 @@ function Footer() {
           <p className="text-xs uppercase tracking-[0.2em] text-white/50">Contact</p>
           <div className="mt-4 space-y-3">
             <a
+              href={`tel:${PHONE}`}
+              className="flex items-center gap-2 text-sm text-white/80 hover:text-[var(--gold)]"
+            >
+              <Phone className="h-4 w-4" /> {PHONE}
+            </a>
+            <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -644,27 +677,10 @@ function Footer() {
               <MessageCircle className="h-4 w-4" /> WhatsApp
             </a>
             <a
-              href="mailto:hello@umodoro.com"
+              href={`mailto:${EMAIL}`}
               className="flex items-center gap-2 text-sm text-white/80 hover:text-[var(--gold)]"
             >
-              <Mail className="h-4 w-4" /> Email
-            </a>
-          </div>
-        </div>
-        <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-white/50">Follow</p>
-          <div className="mt-4 space-y-3">
-            <a
-              href="#"
-              className="flex items-center gap-2 text-sm text-white/80 hover:text-[var(--gold)]"
-            >
-              <Facebook className="h-4 w-4" /> Facebook
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-2 text-sm text-white/80 hover:text-[var(--gold)]"
-            >
-              <Instagram className="h-4 w-4" /> Instagram
+              <Mail className="h-4 w-4" /> {EMAIL}
             </a>
           </div>
         </div>
@@ -675,6 +691,147 @@ function Footer() {
     </footer>
   );
 }
+
+function DemoModal() {
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", property: "", message: "" });
+
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("open-demo-modal", handler);
+    return () => window.removeEventListener("open-demo-modal", handler);
+  }, []);
+
+  if (!open) return null;
+
+  const close = () => setOpen(false);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Free Demo Request — ${form.name || "New lead"}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nProperty: ${form.property}\n\nMessage:\n${form.message}`,
+    );
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-end justify-center bg-black/70 p-4 backdrop-blur-sm sm:items-center"
+      onClick={close}
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        className="relative max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-card p-7 shadow-[var(--shadow-luxe)] sm:p-9"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          onClick={close}
+          aria-label="Close"
+          className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full text-[var(--muted-foreground)] hover:bg-[var(--secondary)]"
+        >
+          <X className="h-4 w-4" />
+        </button>
+        <p className="text-xs uppercase tracking-[0.25em] text-[var(--gold)]">
+          Free Demo
+        </p>
+        <h3 className="mt-2 font-display text-3xl font-bold tracking-tight">
+          Book Your Free Demo
+        </h3>
+        <p className="mt-2 text-sm text-[var(--muted-foreground)]">
+          Tell us about your property and we'll be in touch within 24 hours.
+        </p>
+
+        <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+          <div>
+            <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">
+              Name
+            </label>
+            <input
+              required
+              maxLength={100}
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              className="mt-1 w-full rounded-lg border border-[var(--border)] bg-background px-4 py-2.5 text-sm outline-none focus:border-[var(--gold)]"
+            />
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">
+                Email
+              </label>
+              <input
+                required
+                type="email"
+                maxLength={255}
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="mt-1 w-full rounded-lg border border-[var(--border)] bg-background px-4 py-2.5 text-sm outline-none focus:border-[var(--gold)]"
+              />
+            </div>
+            <div>
+              <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">
+                Property Type
+              </label>
+              <input
+                maxLength={100}
+                placeholder="Guest house, Airbnb…"
+                value={form.property}
+                onChange={(e) => setForm({ ...form, property: e.target.value })}
+                className="mt-1 w-full rounded-lg border border-[var(--border)] bg-background px-4 py-2.5 text-sm outline-none focus:border-[var(--gold)]"
+              />
+            </div>
+          </div>
+          <div>
+            <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">
+              Message
+            </label>
+            <textarea
+              rows={3}
+              maxLength={1000}
+              value={form.message}
+              onChange={(e) => setForm({ ...form, message: e.target.value })}
+              className="mt-1 w-full rounded-lg border border-[var(--border)] bg-background px-4 py-2.5 text-sm outline-none focus:border-[var(--gold)]"
+            />
+          </div>
+          <button
+            type="submit"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--ink)] py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--charcoal)]"
+          >
+            <Mail className="h-4 w-4" />
+            Send via Email
+          </button>
+        </form>
+
+        <div className="my-6 flex items-center gap-3 text-[10px] uppercase tracking-[0.25em] text-[var(--muted-foreground)]">
+          <span className="h-px flex-1 bg-[var(--border)]" />
+          Or reach us directly
+          <span className="h-px flex-1 bg-[var(--border)]" />
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--gold)] px-5 py-3 text-sm font-semibold text-[var(--ink)] transition hover:scale-[1.01]"
+          >
+            <MessageCircle className="h-4 w-4" /> WhatsApp
+          </a>
+          <a
+            href={`tel:${PHONE}`}
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--border)] px-5 py-3 text-sm font-semibold text-foreground transition hover:border-[var(--gold)]"
+          >
+            <Phone className="h-4 w-4" /> {PHONE}
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 function Index() {
   return (
@@ -689,6 +846,7 @@ function Index() {
       <WhyNow />
       <FinalCTA />
       <Footer />
+      <DemoModal />
     </main>
   );
 }
