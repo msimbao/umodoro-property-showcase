@@ -692,6 +692,165 @@ function Footer() {
   );
 }
 
+function DemoModal() {
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", property: "", message: "" });
+
+  if (typeof window !== "undefined") {
+    // Attach listener once via effect-less pattern using a ref guard
+  }
+
+  // Subscribe to global open event
+  if (typeof window !== "undefined") {
+    // useEffect equivalent
+  }
+
+  // Use real useEffect:
+  // (declared below to keep imports clean)
+  useDemoModalListener(() => setOpen(true));
+
+  if (!open) return null;
+
+  const close = () => setOpen(false);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Free Demo Request — ${form.name || "New lead"}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nProperty: ${form.property}\n\nMessage:\n${form.message}`,
+    );
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-end justify-center bg-black/70 p-4 backdrop-blur-sm sm:items-center"
+      onClick={close}
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        className="relative max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-card p-7 shadow-[var(--shadow-luxe)] sm:p-9"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          onClick={close}
+          aria-label="Close"
+          className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full text-[var(--muted-foreground)] hover:bg-[var(--secondary)]"
+        >
+          <X className="h-4 w-4" />
+        </button>
+        <p className="text-xs uppercase tracking-[0.25em] text-[var(--gold)]">
+          Free Demo
+        </p>
+        <h3 className="mt-2 font-display text-3xl font-bold tracking-tight">
+          Book Your Free Demo
+        </h3>
+        <p className="mt-2 text-sm text-[var(--muted-foreground)]">
+          Tell us about your property and we'll be in touch within 24 hours.
+        </p>
+
+        <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+          <div>
+            <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">
+              Name
+            </label>
+            <input
+              required
+              maxLength={100}
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              className="mt-1 w-full rounded-lg border border-[var(--border)] bg-background px-4 py-2.5 text-sm outline-none focus:border-[var(--gold)]"
+            />
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">
+                Email
+              </label>
+              <input
+                required
+                type="email"
+                maxLength={255}
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="mt-1 w-full rounded-lg border border-[var(--border)] bg-background px-4 py-2.5 text-sm outline-none focus:border-[var(--gold)]"
+              />
+            </div>
+            <div>
+              <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">
+                Property Type
+              </label>
+              <input
+                maxLength={100}
+                placeholder="Guest house, Airbnb…"
+                value={form.property}
+                onChange={(e) => setForm({ ...form, property: e.target.value })}
+                className="mt-1 w-full rounded-lg border border-[var(--border)] bg-background px-4 py-2.5 text-sm outline-none focus:border-[var(--gold)]"
+              />
+            </div>
+          </div>
+          <div>
+            <label className="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">
+              Message
+            </label>
+            <textarea
+              rows={3}
+              maxLength={1000}
+              value={form.message}
+              onChange={(e) => setForm({ ...form, message: e.target.value })}
+              className="mt-1 w-full rounded-lg border border-[var(--border)] bg-background px-4 py-2.5 text-sm outline-none focus:border-[var(--gold)]"
+            />
+          </div>
+          <button
+            type="submit"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--ink)] py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--charcoal)]"
+          >
+            <Mail className="h-4 w-4" />
+            Send via Email
+          </button>
+        </form>
+
+        <div className="my-6 flex items-center gap-3 text-[10px] uppercase tracking-[0.25em] text-[var(--muted-foreground)]">
+          <span className="h-px flex-1 bg-[var(--border)]" />
+          Or reach us directly
+          <span className="h-px flex-1 bg-[var(--border)]" />
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--gold)] px-5 py-3 text-sm font-semibold text-[var(--ink)] transition hover:scale-[1.01]"
+          >
+            <MessageCircle className="h-4 w-4" /> WhatsApp
+          </a>
+          <a
+            href={`tel:${PHONE}`}
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--border)] px-5 py-3 text-sm font-semibold text-foreground transition hover:border-[var(--gold)]"
+          >
+            <Phone className="h-4 w-4" /> {PHONE}
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function useDemoModalListener(onOpen: () => void) {
+  // Inline hook using React's useEffect
+  // Imported separately to avoid clutter at top
+  const { useEffect } = require("react") as typeof import("react");
+  useEffect(() => {
+    const handler = () => onOpen();
+    window.addEventListener("open-demo-modal", handler);
+    return () => window.removeEventListener("open-demo-modal", handler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+}
+
 function Index() {
   return (
     <main className="bg-background">
@@ -705,6 +864,7 @@ function Index() {
       <WhyNow />
       <FinalCTA />
       <Footer />
+      <DemoModal />
     </main>
   );
 }
