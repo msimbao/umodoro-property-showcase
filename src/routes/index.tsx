@@ -90,11 +90,7 @@ function Hero() {
       <Nav />
       <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-32 lg:grid-cols-2 lg:gap-16 lg:px-10 lg:pt-40">
         <div className="flex flex-col justify-center">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[11px] uppercase tracking-[0.18em] text-white/70 backdrop-blur">
-            <Sparkles className="h-3 w-3 text-[var(--gold)]" />
-            Zambia's Social-Media-Ready Property Tours
-          </div>
-          <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
+          <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
             Get More Bookings With{" "}
             <span className="gold-text italic">Interactive</span> Property Tours
           </h1>
@@ -104,13 +100,14 @@ function Hero() {
             websites.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#cta"
+            <button
+              type="button"
+              onClick={openDemoModal}
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--gold)] px-7 py-4 text-sm font-semibold text-[var(--ink)] shadow-[var(--shadow-gold)] transition hover:scale-[1.02]"
             >
               Book My Free Demo
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-            </a>
+            </button>
             <a
               href="#tours"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-4 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/5"
