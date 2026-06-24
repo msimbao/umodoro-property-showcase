@@ -380,7 +380,7 @@ function Gallery() {
             Step inside real properties. Each tour opens in a new tab.
           </p>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {tours.map((t) => (
             <a
               key={t.title}
