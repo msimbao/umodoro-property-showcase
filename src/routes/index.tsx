@@ -211,27 +211,42 @@ function BeforeAfter() {
         <h2 className="text-center font-display text-4xl font-bold tracking-tight md:text-5xl">
           From This<span className="text-[var(--muted-foreground)]">...</span>
         </h2>
-        <div className="mt-16 grid items-center gap-8 md:grid-cols-[1fr_auto_1fr]">
-          <div className="rounded-2xl border border-[var(--border)] bg-card p-10">
-            <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
+        <div className="mt-16 grid items-center gap-10 md:grid-cols-[1fr_auto_1fr]">
+          {/* Old Way: stacked angled social post cards */}
+          <div className="relative mx-auto h-[360px] w-full max-w-sm">
+            <p className="absolute -top-2 left-1/2 z-30 -translate-x-1/2 whitespace-nowrap rounded-full border border-[var(--border)] bg-card px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
               The Old Way
             </p>
-            <h3 className="mt-3 font-display text-2xl font-semibold">
-              Photos & Videos Only
-            </h3>
-            <ul className="mt-6 space-y-3 text-[var(--muted-foreground)]">
-              {[
-                "Static images",
-                "Easy to scroll past",
-                "Guests guess room layouts",
-                "Looks like every other listing",
-              ].map((t) => (
-                <li key={t} className="flex items-start gap-3">
-                  <span className="mt-2 h-1 w-1 rounded-full bg-[var(--muted-foreground)]" />
-                  {t}
-                </li>
-              ))}
-            </ul>
+            {[
+              { img: luxuryImg, rot: "-rotate-[8deg] -translate-x-6 translate-y-4", z: "z-10" },
+              { img: deluxImg, rot: "rotate-[6deg] translate-x-6 -translate-y-2", z: "z-20" },
+            ].map((c, i) => (
+              <div
+                key={i}
+                className={`absolute inset-0 mx-auto h-[320px] w-[260px] overflow-hidden rounded-2xl border border-[var(--border)] bg-card shadow-xl transition ${c.rot} ${c.z}`}
+              >
+                <div className="flex items-center gap-2 border-b border-[var(--border)] px-3 py-2">
+                  <div className="h-6 w-6 rounded-full bg-[var(--secondary)]" />
+                  <div className="flex-1">
+                    <div className="h-2 w-20 rounded-full bg-[var(--secondary)]" />
+                    <div className="mt-1 h-1.5 w-12 rounded-full bg-[var(--secondary)]" />
+                  </div>
+                </div>
+                <img
+                  src={c.img}
+                  alt=""
+                  className="h-[210px] w-full object-cover"
+                  loading="lazy"
+                />
+                <div className="space-y-1.5 p-3">
+                  <div className="h-1.5 w-3/4 rounded-full bg-[var(--secondary)]" />
+                  <div className="h-1.5 w-1/2 rounded-full bg-[var(--secondary)]" />
+                </div>
+              </div>
+            ))}
+            <div className="absolute bottom-0 left-1/2 z-30 -translate-x-1/2 translate-y-4 rounded-full bg-card/90 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[var(--muted-foreground)] backdrop-blur">
+              Just another social post
+            </div>
           </div>
 
           <div className="flex justify-center">
@@ -243,31 +258,40 @@ function BeforeAfter() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl border border-[var(--ink)] bg-[var(--ink)] p-10 text-white shadow-[var(--shadow-luxe)]">
-            <div
-              aria-hidden
-              className="absolute -right-20 -top-20 h-60 w-60 rounded-full opacity-20 blur-3xl"
-              style={{ background: "var(--gradient-gold)" }}
-            />
-            <p className="text-xs uppercase tracking-[0.2em] text-[var(--gold)]">
+          {/* Umodoro Way: 360 tour visual */}
+          <div className="relative mx-auto h-[360px] w-full max-w-sm">
+            <p className="absolute -top-2 left-1/2 z-30 -translate-x-1/2 whitespace-nowrap rounded-full bg-[var(--gold)] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--ink)]">
               The Umodoro Way
             </p>
-            <h3 className="mt-3 font-display text-2xl font-semibold">
-              Umodoro Property Tour
-            </h3>
-            <ul className="mt-6 space-y-3 text-white/80">
-              {[
-                "Interactive walkthrough",
-                "Explore every room",
-                "Shareable anywhere",
-                "Premium presentation",
-              ].map((t) => (
-                <li key={t} className="flex items-start gap-3">
-                  <Check className="mt-0.5 h-4 w-4 text-[var(--gold)]" />
-                  {t}
-                </li>
-              ))}
-            </ul>
+            <div className="relative h-[320px] w-full overflow-hidden rounded-2xl border border-[var(--ink)] shadow-[var(--shadow-luxe)]">
+              <img
+                src={luxuryImg}
+                alt="Interactive 360 tour"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
+              <button
+                type="button"
+                onClick={openDemoModal}
+                className="group absolute inset-0 flex flex-col items-center justify-center text-white"
+                aria-label="Start tour"
+              >
+                <span
+                  className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/80 bg-white/10 backdrop-blur transition group-hover:scale-105 group-hover:bg-[var(--gold)] group-hover:border-[var(--gold)] group-hover:text-[var(--ink)]"
+                >
+                  <Compass className="h-9 w-9" strokeWidth={1.5} />
+                </span>
+                <span className="mt-4 text-[10px] font-bold uppercase tracking-[0.3em]">
+                  360° Tour
+                </span>
+                <span className="mt-2 font-display text-2xl font-semibold">
+                  Start Tour
+                </span>
+              </button>
+            </div>
+            <div className="absolute bottom-0 left-1/2 z-30 -translate-x-1/2 translate-y-4 rounded-full bg-[var(--ink)] px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[var(--gold)]">
+              Step inside, instantly
+            </div>
           </div>
         </div>
         <p className="mt-14 text-center font-display text-3xl font-bold tracking-tight md:text-4xl">
