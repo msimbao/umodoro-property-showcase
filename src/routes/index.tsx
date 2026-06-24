@@ -696,18 +696,11 @@ function DemoModal() {
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", property: "", message: "" });
 
-  if (typeof window !== "undefined") {
-    // Attach listener once via effect-less pattern using a ref guard
-  }
-
-  // Subscribe to global open event
-  if (typeof window !== "undefined") {
-    // useEffect equivalent
-  }
-
-  // Use real useEffect:
-  // (declared below to keep imports clean)
-  useDemoModalListener(() => setOpen(true));
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("open-demo-modal", handler);
+    return () => window.removeEventListener("open-demo-modal", handler);
+  }, []);
 
   if (!open) return null;
 
