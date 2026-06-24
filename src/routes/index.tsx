@@ -376,9 +376,7 @@ function Gallery() {
               Explore More Tours
             </h2>
           </div>
-          <p className="max-w-sm text-sm text-[var(--muted-foreground)]">
-            Step inside real properties. Each tour opens in a new tab.
-          </p>
+
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {tours.map((t) => (
