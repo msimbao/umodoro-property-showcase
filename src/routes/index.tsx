@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState, type FormEvent } from "react";
 import {
   ArrowRight,
   Check,
-  Sparkles,
   ShieldCheck,
   TrendingUp,
   Camera,
@@ -10,15 +10,15 @@ import {
   Share2,
   MessageCircle,
   Mail,
-  Facebook,
-  Instagram,
+  Phone,
   Star,
   Play,
   ArrowDown,
+  X,
+  Compass,
 } from "lucide-react";
-import tour1 from "@/assets/tour-1.jpg";
-import tour2 from "@/assets/tour-2.jpg";
-import tour3 from "@/assets/tour-3.jpg";
+import luxuryImg from "@/assets/luxury-guest-house.jpg";
+import deluxImg from "@/assets/delux-rental.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,7 +41,10 @@ export const Route = createFileRoute("/")({
 });
 
 const DEMO_URL = "https://msimbao.github.io/tourdemos/umodoro-demo-3/app-files/index.html";
-const WHATSAPP_URL = "https://wa.me/260000000000";
+const PHONE = "+260956180824";
+const PHONE_DIGITS = "260956180824";
+const EMAIL = "umodoro@gmail.com";
+const WHATSAPP_URL = `https://wa.me/${PHONE_DIGITS}`;
 
 function Nav() {
   return (
