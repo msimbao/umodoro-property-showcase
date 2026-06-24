@@ -618,15 +618,14 @@ function FinalCTA() {
           your property stand out online.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={openDemoModal}
             className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--gold)] px-9 py-4 text-sm font-semibold text-[var(--ink)] shadow-[var(--shadow-gold)] transition hover:scale-[1.02]"
           >
             Book My Free Demo
             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-          </a>
+          </button>
           <a
             href={WHATSAPP_URL}
             target="_blank"
