@@ -832,17 +832,6 @@ function DemoModal() {
   );
 }
 
-function useDemoModalListener(onOpen: () => void) {
-  // Inline hook using React's useEffect
-  // Imported separately to avoid clutter at top
-  const { useEffect } = require("react") as typeof import("react");
-  useEffect(() => {
-    const handler = () => onOpen();
-    window.addEventListener("open-demo-modal", handler);
-    return () => window.removeEventListener("open-demo-modal", handler);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-}
 
 function Index() {
   return (
