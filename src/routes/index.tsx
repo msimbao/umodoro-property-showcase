@@ -484,12 +484,13 @@ function Pricing() {
             <p className="mt-4 text-[var(--muted-foreground)]">
               We visit your property and create a sample tour. No obligation.
             </p>
-            <a
-              href="#cta"
+            <button
+              type="button"
+              onClick={openDemoModal}
               className="mt-8 inline-flex w-full items-center justify-center rounded-full border border-[var(--ink)] bg-[var(--ink)] py-3.5 text-sm font-semibold text-white transition hover:bg-transparent hover:text-[var(--ink)]"
             >
               Book Free Demo
-            </a>
+            </button>
           </div>
 
           {/* Professional - highlighted */}
