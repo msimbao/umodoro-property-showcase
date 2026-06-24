@@ -354,19 +354,14 @@ function Stats() {
 function Gallery() {
   const tours = [
     {
-      img: tour2,
+      img: luxuryImg,
       title: "Luxury Guest House",
       url: "https://msimbao.github.io/tourdemos/umodoro-demo-2/app-files/index.html",
     },
     {
-      img: tour1,
-      title: "Boutique Lodge",
+      img: deluxImg,
+      title: "Delux Rental",
       url: "https://msimbao.github.io/tourdemos/umodoro-demo-1/app-files/index.html",
-    },
-    {
-      img: tour3,
-      title: "Safari Lodge",
-      url: "https://msimbao.github.io/tourdemos/safarilodge/index.html",
     },
   ];
   return (
