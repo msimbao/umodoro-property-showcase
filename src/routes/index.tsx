@@ -523,12 +523,13 @@ function Pricing() {
                 </li>
               ))}
             </ul>
-            <a
-              href="#cta"
+            <button
+              type="button"
+              onClick={openDemoModal}
               className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-[var(--gold)] py-3.5 text-sm font-semibold text-[var(--ink)] transition hover:scale-[1.01]"
             >
               Get Started
-            </a>
+            </button>
             <p className="mt-4 text-center text-xs text-white/60">
               One extra booking can pay for the entire tour.
             </p>
