@@ -467,35 +467,21 @@ function Pricing() {
           <h2 className="mt-4 font-display text-4xl font-bold tracking-tight md:text-5xl">
             Less Than The Value Of A <span className="gold-text italic">Single Booking</span>
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-[var(--muted-foreground)]">
-            Start with a <span className="font-semibold text-foreground">free sample tour</span> of your property — no payment, no obligation. If you love it, you pay a one-time fee to keep it. A small yearly renewal keeps your tour live and maintained.
-          </p>
         </div>
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
-          {/* Step 1 — Free Demo */}
+          {/* Free Demo */}
           <div className="relative rounded-2xl border border-[var(--border)] bg-card p-8">
             <div className="absolute -top-3 left-8 rounded-full bg-[var(--ink)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
-              Step 1 · Start Here
+              Most Popular
             </div>
             <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
-              Free Demo Tour
+              Free Demo
             </p>
             <div className="mt-4 font-display text-5xl font-bold">FREE</div>
-            <p className="mt-2 text-sm text-[var(--muted-foreground)]">No payment required</p>
-            <ul className="mt-6 space-y-3 text-sm text-[var(--muted-foreground)]">
-              {[
-                "We visit your property",
-                "We build a real sample tour",
-                "You see it before you pay",
-                "Zero obligation to continue",
-              ].map((t) => (
-                <li key={t} className="flex items-start gap-3">
-                  <Check className="mt-0.5 h-4 w-4 text-[var(--gold)]" />
-                  {t}
-                </li>
-              ))}
-            </ul>
+            <p className="mt-4 text-[var(--muted-foreground)]">
+              We visit your property and create a sample tour. No obligation.
+            </p>
             <button
               type="button"
               onClick={openDemoModal}
@@ -505,32 +491,29 @@ function Pricing() {
             </button>
           </div>
 
-          {/* Step 2 — One-time Tour */}
+          {/* Professional - highlighted */}
           <div className="relative overflow-hidden rounded-2xl bg-[var(--ink)] p-8 text-white shadow-[var(--shadow-luxe)] lg:-mt-6 lg:pb-12">
             <div
               aria-hidden
               className="absolute inset-x-0 top-0 h-1"
               style={{ background: "var(--gradient-gold)" }}
             />
-            <div className="absolute -top-3 left-8 rounded-full bg-[var(--gold)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[var(--ink)]">
-              Step 2 · Keep It
-            </div>
             <p className="text-xs uppercase tracking-[0.2em] text-[var(--gold)]">
-              Your Property Tour
+              Professional Property Tour
             </p>
             <div className="mt-4">
               <span className="font-display text-5xl font-bold">K4,500</span>
-              <span className="ml-2 text-sm text-white/60">one-time</span>
+              <span className="ml-2 text-sm text-white/60">once-off</span>
             </div>
-            <p className="mt-2 text-sm text-white/60">Paid once after the demo</p>
             <ul className="mt-6 space-y-3 text-sm text-white/85">
               {[
-                "Full interactive property tour",
-                "Mobile friendly & shareable",
-                "WhatsApp-ready link",
-                "Embed on your website",
-                "Works on Airbnb, Booking.com, social",
-                "Hosted live for 12 months",
+                "Full property tour",
+                "Mobile friendly",
+                "Professional hosting",
+                "Unlimited sharing",
+                "Website embedding",
+                "WhatsApp-ready links",
+                "Social media ready",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-3">
                   <Check className="mt-0.5 h-4 w-4 text-[var(--gold)]" />
@@ -546,30 +529,27 @@ function Pricing() {
               Get Started
             </button>
             <p className="mt-4 text-center text-xs text-white/60">
-              One extra booking pays for the entire tour.
+              One extra booking can pay for the entire tour.
             </p>
           </div>
 
-          {/* Step 3 — Annual Renewal */}
-          <div className="rounded-2xl border border-[var(--border)] bg-card p-8 relative">
-            <div className="absolute -top-3 left-8 rounded-full bg-[var(--ink)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
-              Step 3 · Yearly
-            </div>
+          {/* Hosting */}
+          <div className="rounded-2xl border border-[var(--border)] bg-card p-8">
             <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
-              Annual Renewal
+              Hosting & Maintenance
             </p>
             <div className="mt-4">
               <span className="font-display text-5xl font-bold">K1,500</span>
-              <span className="ml-2 text-sm text-[var(--muted-foreground)]">/ year</span>
+              <span className="ml-2 text-sm text-[var(--muted-foreground)]">/year</span>
             </div>
-            <p className="mt-2 text-sm text-[var(--muted-foreground)]">Starts 12 months after launch</p>
             <ul className="mt-6 space-y-3 text-sm text-[var(--muted-foreground)]">
               {[
-                "Keeps your tour live online",
-                "Secure hosting & uptime",
-                "Link & compatibility upkeep",
+                "Secure hosting",
+                "Link maintenance",
+                "Compatibility updates",
                 "Minor photo updates",
-                "Priority support",
+                "Continued access",
+                "Fast support",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-3">
                   <Check className="mt-0.5 h-4 w-4 text-[var(--gold)]" />
@@ -577,9 +557,6 @@ function Pricing() {
                 </li>
               ))}
             </ul>
-            <p className="mt-8 text-xs text-[var(--muted-foreground)]">
-              Cancel anytime. If you stop renewing, your tour simply goes offline — no extra charges.
-            </p>
           </div>
         </div>
       </div>
