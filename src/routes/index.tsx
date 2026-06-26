@@ -159,7 +159,7 @@ function Hero() {
 
 function KeyOffer() {
   return (
-    <section className="relative overflow-hidden bg-[var(--ink)] py-16 text-white md:py-20">
+    <section className="relative overflow-hidden bg-[var(--charcoal)] py-16 text-white md:py-20">
       <div
         aria-hidden
         className="pointer-events-none absolute -top-32 left-1/2 h-[400px] w-[400px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
@@ -204,7 +204,7 @@ function KeyOffer() {
             ].map((s) => (
               <div
                 key={s.label}
-                className="rounded-2xl border border-white/10 bg-[var(--ink)]/60 p-5 text-center"
+                className="rounded-2xl border border-white/10 bg-black/40 p-5 text-center"
               >
                 <div
                   className="font-stat text-4xl font-bold tracking-tight md:text-5xl"
@@ -293,7 +293,7 @@ function BeforeAfter() {
           {/* Old Way: stacked angled Facebook post cards */}
           <div className="relative mx-auto h-[440px] w-full max-w-sm">
             <p className="absolute -top-2 left-1/2 z-40 -translate-x-1/2 whitespace-nowrap rounded-full border border-[var(--border)] bg-card px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
-              The Old Way
+              Just another social media post
             </p>
             {[
               { img: old1, name: "Lusaka Stays", time: "2h", rot: "-rotate-[10deg] -translate-x-10 translate-y-6", z: "z-10" },
