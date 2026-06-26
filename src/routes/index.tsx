@@ -362,7 +362,7 @@ function Stats() {
               className="rounded-2xl border border-white/10 bg-white/[0.03] p-10 text-center backdrop-blur transition hover:border-[var(--gold)]/50"
             >
               <div
-                className="font-display text-7xl font-bold tracking-tight"
+                className="font-stat text-7xl font-bold tracking-tight"
                 style={{
                   background: "var(--gradient-gold)",
                   WebkitBackgroundClip: "text",
