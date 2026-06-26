@@ -204,7 +204,7 @@ function KeyOffer() {
             ].map((s) => (
               <div
                 key={s.label}
-                className="rounded-2xl border border-white/10 bg-[var(--ink)]/60 p-5 text-center"
+                className="rounded-2xl border border-white/10 bg-black/40 p-5 text-center"
               >
                 <div
                   className="font-stat text-4xl font-bold tracking-tight md:text-5xl"
