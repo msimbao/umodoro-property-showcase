@@ -939,6 +939,7 @@ function Index() {
   return (
     <main className="bg-background">
       <Hero />
+      <KeyOffer />
       <WhyUs />
       <BeforeAfter />
       <Stats />
