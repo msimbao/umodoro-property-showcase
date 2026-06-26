@@ -16,9 +16,17 @@ import {
   ArrowDown,
   X,
   Compass,
+  Facebook,
+  ThumbsUp,
+  MessageSquare,
+  Zap,
 } from "lucide-react";
 import luxuryImg from "@/assets/luxury-guest-house.jpg";
 import deluxImg from "@/assets/delux-rental.png";
+import old1 from "@/assets/old-1.jpg";
+import old2 from "@/assets/old-2.jpg";
+import old3 from "@/assets/old-3.jpg";
+import old4 from "@/assets/old-4.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -149,6 +157,76 @@ function Hero() {
   );
 }
 
+function KeyOffer() {
+  return (
+    <section className="relative overflow-hidden bg-[var(--ink)] py-16 text-white md:py-20">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-32 left-1/2 h-[400px] w-[400px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
+        style={{ background: "var(--gradient-gold)" }}
+      />
+      <div className="relative mx-auto max-w-6xl px-6 lg:px-10">
+        <div className="grid items-center gap-10 rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur md:grid-cols-[1.4fr_1fr] md:p-12">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[var(--gold)]/40 bg-[var(--gold)]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-[var(--gold)]">
+              <Zap className="h-3 w-3" /> What We Do
+            </div>
+            <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight md:text-5xl">
+              We Build Virtual Tours You Can{" "}
+              <span className="gold-text italic">Post Instantly</span> To Social Media.
+            </h2>
+            <p className="mt-5 max-w-xl text-base text-white/70 md:text-lg">
+              One link. Share it on WhatsApp, Facebook, Instagram, Airbnb, and your website — and watch engagement climb.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={openDemoModal}
+                className="group inline-flex items-center gap-2 rounded-full bg-[var(--gold)] px-7 py-3.5 text-sm font-semibold text-[var(--ink)] shadow-[var(--shadow-gold)] transition hover:scale-[1.02]"
+              >
+                Book My Free Demo
+                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+              </button>
+              <a
+                href="#tours"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/5"
+              >
+                See Live Tours
+              </a>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { num: "3×", label: "More social media engagement" },
+              { num: "24/7", label: "Always-on virtual open house" },
+              { num: "1 link", label: "Works everywhere instantly" },
+              { num: "60s", label: "To share with every guest" },
+            ].map((s) => (
+              <div
+                key={s.label}
+                className="rounded-2xl border border-white/10 bg-[var(--ink)]/60 p-5 text-center"
+              >
+                <div
+                  className="font-stat text-4xl font-bold tracking-tight md:text-5xl"
+                  style={{
+                    background: "var(--gradient-gold)",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    color: "transparent",
+                  }}
+                >
+                  {s.num}
+                </div>
+                <p className="mt-2 text-xs leading-snug text-white/65">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function WhyUs() {
   const cards = [
     {
@@ -212,39 +290,65 @@ function BeforeAfter() {
           From This<span className="text-[var(--muted-foreground)]">...</span>
         </h2>
         <div className="mt-16 grid items-center gap-10 md:grid-cols-[1fr_auto_1fr]">
-          {/* Old Way: stacked angled social post cards */}
-          <div className="relative mx-auto h-[360px] w-full max-w-sm">
-            <p className="absolute -top-2 left-1/2 z-30 -translate-x-1/2 whitespace-nowrap rounded-full border border-[var(--border)] bg-card px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
+          {/* Old Way: stacked angled Facebook post cards */}
+          <div className="relative mx-auto h-[440px] w-full max-w-sm">
+            <p className="absolute -top-2 left-1/2 z-40 -translate-x-1/2 whitespace-nowrap rounded-full border border-[var(--border)] bg-card px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
               The Old Way
             </p>
             {[
-              { img: luxuryImg, rot: "-rotate-[8deg] -translate-x-6 translate-y-4", z: "z-10" },
-              { img: deluxImg, rot: "rotate-[6deg] translate-x-6 -translate-y-2", z: "z-20" },
+              { img: old1, name: "Lusaka Stays", time: "2h", rot: "-rotate-[10deg] -translate-x-10 translate-y-6", z: "z-10" },
+              { img: old2, name: "Cozy Rooms ZM", time: "5h", rot: "rotate-[7deg] translate-x-8 translate-y-2", z: "z-20" },
+              { img: old3, name: "Apartments Lusaka", time: "1d", rot: "-rotate-[4deg] -translate-x-4 -translate-y-2", z: "z-30" },
+              { img: old4, name: "Lodge Bookings", time: "3d", rot: "rotate-[3deg] translate-x-2 -translate-y-6", z: "z-[35]" },
             ].map((c, i) => (
               <div
                 key={i}
-                className={`absolute inset-0 mx-auto h-[320px] w-[260px] overflow-hidden rounded-2xl border border-[var(--border)] bg-card shadow-xl transition ${c.rot} ${c.z}`}
+                className={`absolute inset-0 mx-auto h-[360px] w-[280px] overflow-hidden rounded-xl border border-[var(--border)] bg-white text-[var(--ink)] shadow-xl ${c.rot} ${c.z}`}
               >
-                <div className="flex items-center gap-2 border-b border-[var(--border)] px-3 py-2">
-                  <div className="h-6 w-6 rounded-full bg-[var(--secondary)]" />
-                  <div className="flex-1">
-                    <div className="h-2 w-20 rounded-full bg-[var(--secondary)]" />
-                    <div className="mt-1 h-1.5 w-12 rounded-full bg-[var(--secondary)]" />
+                {/* FB header */}
+                <div className="flex items-center gap-2 px-3 py-2">
+                  <div className="grid h-9 w-9 place-items-center rounded-full bg-[#1877F2] text-white">
+                    <Facebook className="h-5 w-5 fill-white" strokeWidth={0} />
                   </div>
+                  <div className="flex-1">
+                    <div className="text-[11px] font-semibold leading-tight">{c.name}</div>
+                    <div className="text-[9px] text-gray-500">{c.time} · 🌍</div>
+                  </div>
+                  <div className="text-gray-400 text-lg leading-none">⋯</div>
+                </div>
+                <div className="px-3 pb-2 text-[10px] text-gray-700 leading-snug">
+                  New listing available! DM for bookings 📞
                 </div>
                 <img
                   src={c.img}
                   alt=""
+                  width={512}
+                  height={512}
                   className="h-[210px] w-full object-cover"
                   loading="lazy"
                 />
-                <div className="space-y-1.5 p-3">
-                  <div className="h-1.5 w-3/4 rounded-full bg-[var(--secondary)]" />
-                  <div className="h-1.5 w-1/2 rounded-full bg-[var(--secondary)]" />
+                {/* FB reactions */}
+                <div className="flex items-center justify-between border-t border-gray-100 px-3 py-2 text-[10px] text-gray-500">
+                  <div className="flex items-center gap-1">
+                    <span className="grid h-4 w-4 place-items-center rounded-full bg-[#1877F2] text-white text-[8px]">👍</span>
+                    <span>12</span>
+                  </div>
+                  <div>2 comments</div>
+                </div>
+                <div className="grid grid-cols-3 border-t border-gray-100 text-[10px] text-gray-600">
+                  <div className="flex items-center justify-center gap-1 py-1.5">
+                    <ThumbsUp className="h-3 w-3" /> Like
+                  </div>
+                  <div className="flex items-center justify-center gap-1 py-1.5">
+                    <MessageSquare className="h-3 w-3" /> Comment
+                  </div>
+                  <div className="flex items-center justify-center gap-1 py-1.5">
+                    <Share2 className="h-3 w-3" /> Share
+                  </div>
                 </div>
               </div>
             ))}
-            <div className="absolute bottom-0 left-1/2 z-30 -translate-x-1/2 translate-y-4 rounded-full bg-card/90 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[var(--muted-foreground)] backdrop-blur">
+            <div className="absolute bottom-0 left-1/2 z-40 -translate-x-1/2 translate-y-6 rounded-full bg-card/90 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[var(--muted-foreground)] backdrop-blur">
               Just another social post
             </div>
           </div>
@@ -328,7 +432,7 @@ function Stats() {
               className="rounded-2xl border border-white/10 bg-white/[0.03] p-10 text-center backdrop-blur transition hover:border-[var(--gold)]/50"
             >
               <div
-                className="font-display text-7xl font-bold tracking-tight"
+                className="font-stat text-7xl font-bold tracking-tight"
                 style={{
                   background: "var(--gradient-gold)",
                   WebkitBackgroundClip: "text",
@@ -835,6 +939,7 @@ function Index() {
   return (
     <main className="bg-background">
       <Hero />
+      <KeyOffer />
       <WhyUs />
       <BeforeAfter />
       <Stats />

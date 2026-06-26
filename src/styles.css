@@ -34,7 +34,12 @@
   --color-ink: var(--ink);
   --font-display: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
+  --font-stat: "Space Grotesk", "Inter", sans-serif;
 }
+
+#lovable-badge { display: none !important; }
+
+.font-stat { font-family: var(--font-stat); font-feature-settings: "tnum" 1, "ss01" 1; }
 
 :root {
   --radius: 0.5rem;
