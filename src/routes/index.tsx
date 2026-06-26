@@ -157,6 +157,76 @@ function Hero() {
   );
 }
 
+function KeyOffer() {
+  return (
+    <section className="relative overflow-hidden bg-[var(--ink)] py-16 text-white md:py-20">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-32 left-1/2 h-[400px] w-[400px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
+        style={{ background: "var(--gradient-gold)" }}
+      />
+      <div className="relative mx-auto max-w-6xl px-6 lg:px-10">
+        <div className="grid items-center gap-10 rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur md:grid-cols-[1.4fr_1fr] md:p-12">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[var(--gold)]/40 bg-[var(--gold)]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-[var(--gold)]">
+              <Zap className="h-3 w-3" /> What We Do
+            </div>
+            <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight md:text-5xl">
+              We Build Virtual Tours You Can{" "}
+              <span className="gold-text italic">Post Instantly</span> To Social Media.
+            </h2>
+            <p className="mt-5 max-w-xl text-base text-white/70 md:text-lg">
+              One link. Share it on WhatsApp, Facebook, Instagram, Airbnb, and your website — and watch engagement climb.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={openDemoModal}
+                className="group inline-flex items-center gap-2 rounded-full bg-[var(--gold)] px-7 py-3.5 text-sm font-semibold text-[var(--ink)] shadow-[var(--shadow-gold)] transition hover:scale-[1.02]"
+              >
+                Book My Free Demo
+                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+              </button>
+              <a
+                href="#tours"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/5"
+              >
+                See Live Tours
+              </a>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { num: "3×", label: "More social media engagement" },
+              { num: "24/7", label: "Always-on virtual open house" },
+              { num: "1 link", label: "Works everywhere instantly" },
+              { num: "60s", label: "To share with every guest" },
+            ].map((s) => (
+              <div
+                key={s.label}
+                className="rounded-2xl border border-white/10 bg-[var(--ink)]/60 p-5 text-center"
+              >
+                <div
+                  className="font-stat text-4xl font-bold tracking-tight md:text-5xl"
+                  style={{
+                    background: "var(--gradient-gold)",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    color: "transparent",
+                  }}
+                >
+                  {s.num}
+                </div>
+                <p className="mt-2 text-xs leading-snug text-white/65">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function WhyUs() {
   const cards = [
     {
