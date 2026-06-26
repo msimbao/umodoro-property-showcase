@@ -293,7 +293,7 @@ function BeforeAfter() {
           {/* Old Way: stacked angled Facebook post cards */}
           <div className="relative mx-auto h-[440px] w-full max-w-sm">
             <p className="absolute -top-2 left-1/2 z-40 -translate-x-1/2 whitespace-nowrap rounded-full border border-[var(--border)] bg-card px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
-              The Old Way
+              Just another social media post
             </p>
             {[
               { img: old1, name: "Lusaka Stays", time: "2h", rot: "-rotate-[10deg] -translate-x-10 translate-y-6", z: "z-10" },
