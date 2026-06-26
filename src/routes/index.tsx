@@ -159,7 +159,7 @@ function Hero() {
 
 function KeyOffer() {
   return (
-    <section className="relative overflow-hidden bg-[var(--ink)] py-16 text-white md:py-20">
+    <section className="relative overflow-hidden bg-[var(--charcoal)] py-16 text-white md:py-20">
       <div
         aria-hidden
         className="pointer-events-none absolute -top-32 left-1/2 h-[400px] w-[400px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
