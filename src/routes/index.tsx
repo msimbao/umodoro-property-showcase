@@ -602,7 +602,10 @@ function Pricing() {
             <p className="text-xs uppercase tracking-[0.2em] text-[var(--gold)]">
               Professional Property Tour
             </p>
-            <div className="mt-4">
+            <p className="mt-4 text-sm italic text-white/70">
+              Less than the value of one booking.
+            </p>
+            <div className="mt-2">
               <span className="font-display text-5xl font-bold">K4,500</span>
               <span className="ml-2 text-sm text-white/60">once-off</span>
             </div>
