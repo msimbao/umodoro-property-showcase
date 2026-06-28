@@ -25,7 +25,6 @@ import {
   MapPin,
   Globe,
   Building2,
-  Send,
 } from "lucide-react";
 import luxuryImg from "@/assets/luxury-guest-house.jpg";
 import deluxImg from "@/assets/delux-rental.png";
