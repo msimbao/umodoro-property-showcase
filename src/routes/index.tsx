@@ -193,19 +193,18 @@ function KeyOffer() {
               </a>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid gap-4">
             {[
-              { num: "3×", label: "More social media engagement" },
-              { num: "24/7", label: "Always-on virtual open house" },
-              { num: "1 link", label: "Works everywhere instantly" },
-              { num: "60s", label: "To share with every guest" },
-            ].map((s) => (
+              { label: "Stand out from photo-only listings." },
+              { label: "Build guest confidence before arrival." },
+              { label: "Share one interactive link anywhere." },
+            ].map((s, i) => (
               <div
                 key={s.label}
-                className="rounded-2xl border border-white/10 bg-black/40 p-5 text-center"
+                className="flex items-start gap-4 rounded-2xl border border-white/10 bg-black/40 p-5"
               >
                 <div
-                  className="font-stat text-4xl font-bold tracking-tight md:text-5xl"
+                  className="font-stat text-3xl font-bold tracking-tight"
                   style={{
                     background: "var(--gradient-gold)",
                     WebkitBackgroundClip: "text",
@@ -213,9 +212,9 @@ function KeyOffer() {
                     color: "transparent",
                   }}
                 >
-                  {s.num}
+                  0{i + 1}
                 </div>
-                <p className="mt-2 text-xs leading-snug text-white/65">{s.label}</p>
+                <p className="pt-1 text-sm leading-snug text-white/80 md:text-base">{s.label}</p>
               </div>
             ))}
           </div>
