@@ -20,6 +20,11 @@ import {
   ThumbsUp,
   MessageSquare,
   Zap,
+  Quote,
+  Instagram,
+  MapPin,
+  Globe,
+  Building2,
 } from "lucide-react";
 import luxuryImg from "@/assets/luxury-guest-house.jpg";
 import deluxImg from "@/assets/delux-rental.png";
@@ -99,13 +104,12 @@ function Hero() {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-32 lg:grid-cols-2 lg:gap-16 lg:px-10 lg:pt-40">
         <div className="flex flex-col justify-center">
           <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
-            Get More Bookings With{" "}
-            <span className="gold-text italic">Interactive</span> Property Tours
+            Let Guests{" "}
+            <span className="gold-text italic">Explore</span> Your Property Before They Book.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
-            Show guests exactly what they're booking with immersive property
-            tours designed for WhatsApp, Facebook, Airbnb, Booking.com, and
-            websites.
+            Immersive virtual tours designed for WhatsApp, Facebook, Airbnb,
+            Booking.com, and your website.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <button
@@ -139,10 +143,6 @@ function Hero() {
         <div className="relative">
           <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-[var(--gold)]/30 to-transparent blur-2xl" />
           <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black shadow-[var(--shadow-luxe)]">
-            <div className="absolute right-4 top-4 z-10 flex items-center gap-2 rounded-full bg-[var(--gold)] px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-[var(--ink)]">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--ink)]" />
-              Live Demo Tour
-            </div>
             <iframe
               src={DEMO_URL}
               title="Live virtual property tour demo"
@@ -151,6 +151,9 @@ function Hero() {
               allowFullScreen
             />
           </div>
+          <p className="mt-4 text-center text-sm italic text-white/60">
+            This is exactly what your guests will experience.
+          </p>
         </div>
       </div>
     </section>
@@ -195,19 +198,18 @@ function KeyOffer() {
               </a>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid gap-4">
             {[
-              { num: "3×", label: "More social media engagement" },
-              { num: "24/7", label: "Always-on virtual open house" },
-              { num: "1 link", label: "Works everywhere instantly" },
-              { num: "60s", label: "To share with every guest" },
-            ].map((s) => (
+              { label: "Stand out from photo-only listings." },
+              { label: "Build guest confidence before arrival." },
+              { label: "Share one interactive link anywhere." },
+            ].map((s, i) => (
               <div
                 key={s.label}
-                className="rounded-2xl border border-white/10 bg-black/40 p-5 text-center"
+                className="flex items-start gap-4 rounded-2xl border border-white/10 bg-black/40 p-5"
               >
                 <div
-                  className="font-stat text-4xl font-bold tracking-tight md:text-5xl"
+                  className="font-stat text-3xl font-bold tracking-tight"
                   style={{
                     background: "var(--gradient-gold)",
                     WebkitBackgroundClip: "text",
@@ -215,9 +217,9 @@ function KeyOffer() {
                     color: "transparent",
                   }}
                 >
-                  {s.num}
+                  0{i + 1}
                 </div>
-                <p className="mt-2 text-xs leading-snug text-white/65">{s.label}</p>
+                <p className="pt-1 text-sm leading-snug text-white/80 md:text-base">{s.label}</p>
               </div>
             ))}
           </div>
@@ -408,9 +410,9 @@ function BeforeAfter() {
 
 function Stats() {
   const stats = [
-    { num: "95%", label: "of travellers and buyers begin online." },
-    { num: "3×", label: "more engagement than traditional listings." },
-    { num: "24/7", label: "open house available anytime." },
+    { num: "95%", label: "of travellers and buyers begin their search online." },
+    { num: "24/7", label: "open house — guests can explore anytime." },
+    { num: "1 Link", label: "works on WhatsApp, social, and every listing site." },
   ];
   return (
     <section className="bg-[var(--ink)] py-24 text-white md:py-32">
@@ -605,7 +607,10 @@ function Pricing() {
             <p className="text-xs uppercase tracking-[0.2em] text-[var(--gold)]">
               Professional Property Tour
             </p>
-            <div className="mt-4">
+            <p className="mt-4 text-sm italic text-white/70">
+              Less than the value of one booking.
+            </p>
+            <div className="mt-2">
               <span className="font-display text-5xl font-bold">K4,500</span>
               <span className="ml-2 text-sm text-white/60">once-off</span>
             </div>
@@ -709,15 +714,15 @@ function FinalCTA() {
       />
       <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-10">
         <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">
-          Your Next Booking Starts Here
+          Book A Free Property Demo
         </p>
         <h2 className="mt-6 font-display text-4xl font-bold leading-tight tracking-tight md:text-6xl">
-          Ready To Showcase Your Property{" "}
-          <span className="gold-text italic">Like Never Before?</span>
+          See Your Property{" "}
+          <span className="gold-text italic">As An Interactive Tour</span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg text-white/70">
-          Book your free demo and see how an interactive property tour can help
-          your property stand out online.
+          Free demo, no obligation. We come to you and show you exactly what
+          guests would experience.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <button
@@ -725,7 +730,7 @@ function FinalCTA() {
             onClick={openDemoModal}
             className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--gold)] px-9 py-4 text-sm font-semibold text-[var(--ink)] shadow-[var(--shadow-gold)] transition hover:scale-[1.02]"
           >
-            Book My Free Demo
+            See Your Property As An Interactive Tour
             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
           </button>
           <a
@@ -935,17 +940,200 @@ function DemoModal() {
 }
 
 
+function PerfectFor() {
+  const items = [
+    { icon: Building2, label: "Luxury Guest Houses" },
+    { icon: Star, label: "Boutique Hotels" },
+    { icon: Compass, label: "Wedding Venues" },
+    { icon: MapPin, label: "Safari Lodges" },
+    { icon: ShieldCheck, label: "Luxury Rentals" },
+  ];
+  return (
+    <section className="bg-background py-20 md:py-24">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Perfect For</p>
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight md:text-4xl">
+            Built For Properties That Care About First Impressions
+          </h2>
+        </div>
+        <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-5">
+          {items.map(({ icon: Icon, label }) => (
+            <div
+              key={label}
+              className="group flex flex-col items-center gap-3 rounded-2xl border border-[var(--border)] bg-card p-6 text-center transition hover:border-[var(--gold)] hover:shadow-[var(--shadow-luxe)]"
+            >
+              <div className="grid h-12 w-12 place-items-center rounded-full bg-[var(--ink)] text-[var(--gold)]">
+                <Icon className="h-5 w-5" />
+              </div>
+              <p className="font-display text-sm font-semibold leading-tight">{label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ShareScreenshots() {
+  return (
+    <section className="bg-background py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-xs uppercase tracking-[0.25em] text-[var(--muted-foreground)]">
+            One Link. Every Platform.
+          </p>
+          <h2 className="mt-4 font-display text-4xl font-bold tracking-tight md:text-5xl">
+            Share Your Tour Where Guests Already <span className="gold-text italic">Scroll</span>
+          </h2>
+        </div>
+
+        <div className="mt-14 grid gap-8 md:grid-cols-2">
+          {/* WhatsApp mockup */}
+          <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl border border-[var(--border)] bg-[#0b141a] p-4 shadow-[var(--shadow-luxe)]">
+            <div className="flex items-center gap-3 border-b border-white/10 pb-3">
+              <div className="grid h-9 w-9 place-items-center rounded-full bg-[#25D366] text-white">
+                <MessageCircle className="h-4 w-4" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-white">Guest Inquiry</p>
+                <p className="text-[10px] text-white/50">online</p>
+              </div>
+            </div>
+            <div className="mt-4 space-y-3">
+              <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-[#005C4B] p-3 text-sm text-white">
+                Hi! Do you have any photos of the property?
+              </div>
+              <div className="max-w-[88%] overflow-hidden rounded-2xl rounded-tl-sm bg-[#202C33] text-sm text-white">
+                <img src={luxuryImg} alt="" className="h-32 w-full object-cover" loading="lazy" />
+                <div className="p-3">
+                  <p className="text-xs font-semibold text-[#53BDEB]">umodorotours.com/tour/luxury-stay</p>
+                  <p className="mt-1 text-[11px] text-white/70">Take a full interactive walkthrough — no download needed.</p>
+                </div>
+              </div>
+              <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-[#005C4B] p-3 text-sm text-white">
+                Wow! When can I book? 😍
+              </div>
+            </div>
+          </div>
+
+          {/* Facebook post mockup */}
+          <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl border border-[var(--border)] bg-white text-[var(--ink)] shadow-[var(--shadow-luxe)]">
+            <div className="flex items-center gap-2 px-4 py-3">
+              <div className="grid h-10 w-10 place-items-center rounded-full bg-[#1877F2] text-white">
+                <Facebook className="h-5 w-5 fill-white" strokeWidth={0} />
+              </div>
+              <div className="flex-1">
+                <p className="text-sm font-semibold">Lusaka Luxe Stays</p>
+                <p className="text-[10px] text-gray-500">Sponsored · 🌍</p>
+              </div>
+            </div>
+            <div className="px-4 pb-3 text-sm">
+              ✨ Take a virtual tour before you book. Tap to step inside 👇
+            </div>
+            <div className="relative">
+              <img src={deluxImg} alt="" className="h-56 w-full object-cover" loading="lazy" />
+              <div className="absolute inset-0 grid place-items-center bg-black/30">
+                <div className="grid h-16 w-16 place-items-center rounded-full border-2 border-white bg-white/10 backdrop-blur">
+                  <Compass className="h-7 w-7 text-white" />
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center justify-between bg-gray-50 px-4 py-2 text-[11px]">
+              <p className="font-semibold uppercase tracking-wider text-gray-500">umodorotours.com</p>
+              <span className="rounded bg-[#1877F2] px-3 py-1 text-[10px] font-semibold text-white">Take Tour</span>
+            </div>
+            <div className="flex items-center justify-around border-t border-gray-100 py-2 text-xs text-gray-600">
+              <span className="flex items-center gap-1"><ThumbsUp className="h-3.5 w-3.5" /> Like</span>
+              <span className="flex items-center gap-1"><MessageSquare className="h-3.5 w-3.5" /> Comment</span>
+              <span className="flex items-center gap-1"><Share2 className="h-3.5 w-3.5" /> Share</span>
+            </div>
+          </div>
+        </div>
+
+        <p className="mx-auto mt-10 max-w-2xl text-center text-base text-[var(--muted-foreground)]">
+          One link drops into a WhatsApp chat, a Facebook post, an Instagram bio,
+          a Booking.com message — or your own website.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function Testimonial() {
+  return (
+    <section className="bg-[var(--ink)] py-24 text-white md:py-28">
+      <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
+        <Quote className="mx-auto h-10 w-10 text-[var(--gold)]" />
+        <p className="mt-6 font-display text-2xl font-medium italic leading-snug md:text-3xl">
+          "The moment I sent the link to a guest on WhatsApp, they replied
+          within minutes asking to book. It feels like having a private open
+          house running 24/7."
+        </p>
+        <div className="mt-8 flex flex-col items-center gap-1">
+          <div className="flex gap-1 text-[var(--gold)]">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="h-4 w-4 fill-[var(--gold)]" strokeWidth={0} />
+            ))}
+          </div>
+          <p className="mt-3 text-sm font-semibold tracking-wide">Early Pilot Host</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-white/50">Lusaka · Guest House</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Compatibility() {
+  const platforms = [
+    { icon: MapPin, label: "Airbnb" },
+    { icon: Building2, label: "Booking.com" },
+    { icon: MessageCircle, label: "WhatsApp" },
+    { icon: Facebook, label: "Facebook" },
+    { icon: Instagram, label: "Instagram" },
+    { icon: MapPin, label: "Google Maps" },
+    { icon: Globe, label: "Websites" },
+  ];
+  return (
+    <section className="bg-background py-20 md:py-24">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Works Everywhere</p>
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight md:text-4xl">
+            Compatible With Every Platform You Already Use
+          </h2>
+        </div>
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-3 md:gap-4">
+          {platforms.map(({ icon: Icon, label }) => (
+            <div
+              key={label}
+              className="flex items-center gap-2 rounded-full border border-[var(--border)] bg-card px-5 py-3 text-sm font-semibold transition hover:border-[var(--gold)]"
+            >
+              <Icon className="h-4 w-4 text-[var(--gold)]" />
+              {label}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Index() {
   return (
     <main className="bg-background">
       <Hero />
       <KeyOffer />
+      <PerfectFor />
       <WhyUs />
       <BeforeAfter />
+      <ShareScreenshots />
       <Stats />
       <Gallery />
+      <Testimonial />
       <HowItWorks />
       <Pricing />
+      <Compatibility />
       <WhyNow />
       <FinalCTA />
       <Footer />
@@ -953,3 +1141,4 @@ function Index() {
     </main>
   );
 }
+
