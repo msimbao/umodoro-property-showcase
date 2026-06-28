@@ -405,9 +405,9 @@ function BeforeAfter() {
 
 function Stats() {
   const stats = [
-    { num: "95%", label: "of travellers and buyers begin online." },
-    { num: "3×", label: "more engagement than traditional listings." },
-    { num: "24/7", label: "open house available anytime." },
+    { num: "95%", label: "of travellers and buyers begin their search online." },
+    { num: "24/7", label: "open house — guests can explore anytime." },
+    { num: "1 Link", label: "works on WhatsApp, social, and every listing site." },
   ];
   return (
     <section className="bg-[var(--ink)] py-24 text-white md:py-32">
