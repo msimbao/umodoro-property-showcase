@@ -709,15 +709,15 @@ function FinalCTA() {
       />
       <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-10">
         <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">
-          Your Next Booking Starts Here
+          Book A Free Property Demo
         </p>
         <h2 className="mt-6 font-display text-4xl font-bold leading-tight tracking-tight md:text-6xl">
-          Ready To Showcase Your Property{" "}
-          <span className="gold-text italic">Like Never Before?</span>
+          See Your Property{" "}
+          <span className="gold-text italic">As An Interactive Tour</span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg text-white/70">
-          Book your free demo and see how an interactive property tour can help
-          your property stand out online.
+          Free demo, no obligation. We come to you and show you exactly what
+          guests would experience.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <button
@@ -725,7 +725,7 @@ function FinalCTA() {
             onClick={openDemoModal}
             className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--gold)] px-9 py-4 text-sm font-semibold text-[var(--ink)] shadow-[var(--shadow-gold)] transition hover:scale-[1.02]"
           >
-            Book My Free Demo
+            See Your Property As An Interactive Tour
             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
           </button>
           <a
