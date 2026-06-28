@@ -99,13 +99,12 @@ function Hero() {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-32 lg:grid-cols-2 lg:gap-16 lg:px-10 lg:pt-40">
         <div className="flex flex-col justify-center">
           <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
-            Get More Bookings With{" "}
-            <span className="gold-text italic">Interactive</span> Property Tours
+            Let Guests{" "}
+            <span className="gold-text italic">Explore</span> Your Property Before They Book.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
-            Show guests exactly what they're booking with immersive property
-            tours designed for WhatsApp, Facebook, Airbnb, Booking.com, and
-            websites.
+            Immersive virtual tours designed for WhatsApp, Facebook, Airbnb,
+            Booking.com, and your website.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <button
