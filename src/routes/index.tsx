@@ -138,10 +138,6 @@ function Hero() {
         <div className="relative">
           <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-[var(--gold)]/30 to-transparent blur-2xl" />
           <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black shadow-[var(--shadow-luxe)]">
-            <div className="absolute right-4 top-4 z-10 flex items-center gap-2 rounded-full bg-[var(--gold)] px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-[var(--ink)]">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--ink)]" />
-              Live Demo Tour
-            </div>
             <iframe
               src={DEMO_URL}
               title="Live virtual property tour demo"
@@ -150,6 +146,9 @@ function Hero() {
               allowFullScreen
             />
           </div>
+          <p className="mt-4 text-center text-sm italic text-white/60">
+            This is exactly what your guests will experience.
+          </p>
         </div>
       </div>
     </section>
