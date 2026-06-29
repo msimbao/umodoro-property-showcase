@@ -1072,9 +1072,9 @@ function Testimonial() {
       <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
         <Quote className="mx-auto h-10 w-10 text-[var(--gold)]" />
         <p className="mt-6 font-display text-2xl font-medium  leading-snug md:text-3xl">
-          "The moment I sent the link to a guest on WhatsApp, they replied
-          within minutes asking to book. It feels like having a private open
-          house running 24/7."
+          "I was torn between two properties. The one with the virtual tour
+          made my decision effortless — I could walk through every room before
+          paying a single kwacha. I booked within minutes."
         </p>
         <div className="mt-8 flex flex-col items-center gap-1">
           <div className="flex gap-1 text-[var(--gold)]">
@@ -1082,8 +1082,8 @@ function Testimonial() {
               <Star key={i} className="h-4 w-4 fill-[var(--gold)]" strokeWidth={0} />
             ))}
           </div>
-          <p className="mt-3 text-sm font-semibold tracking-wide">Early Pilot Host</p>
-          <p className="text-xs uppercase tracking-[0.2em] text-white/50">Lusaka · Guest House</p>
+          <p className="mt-3 text-sm font-semibold tracking-wide">Discerning Guest</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-white/50">Lusaka · Holiday Visitor</p>
         </div>
       </div>
     </section>
