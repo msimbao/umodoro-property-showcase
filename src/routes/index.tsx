@@ -75,7 +75,7 @@ function Nav() {
           </span>
         </a>
         <nav className="hidden items-center gap-8 text-sm text-white/70 md:flex">
-          <a href="#why" className="hover:text-white transition">Why Us</a>
+          <a href="#keyoffer" className="hover:text-white transition">Why Us</a>
           <a href="#tours" className="hover:text-white transition">Tours</a>
           <a href="#pricing" className="hover:text-white transition">Pricing</a>
           <a href="#how" className="hover:text-white transition">How It Works</a>
@@ -105,7 +105,7 @@ function Hero() {
         <div className="flex flex-col justify-center">
           <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
             Let Guests{" "}
-            <span className="gold-text italic">Explore</span> Your Property Before They Book.
+            <span className="gold-text">Explore</span> Your Property Before They Book.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
             Immersive virtual tours designed for WhatsApp, Facebook, Airbnb,
@@ -151,7 +151,7 @@ function Hero() {
               allowFullScreen
             />
           </div>
-          <p className="mt-4 text-center text-sm italic text-white/60">
+          <p className="mt-4 text-center text-sm  text-white/60">
             This is exactly what your guests will experience.
           </p>
         </div>
@@ -162,7 +162,7 @@ function Hero() {
 
 function KeyOffer() {
   return (
-    <section className="relative overflow-hidden bg-[var(--charcoal)] py-16 text-white md:py-20">
+    <section id="keyoffer" className="relative overflow-hidden bg-[var(--charcoal)] py-16 text-white md:py-20">
       <div
         aria-hidden
         className="pointer-events-none absolute -top-32 left-1/2 h-[400px] w-[400px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
@@ -171,12 +171,12 @@ function KeyOffer() {
       <div className="relative mx-auto max-w-6xl px-6 lg:px-10">
         <div className="grid items-center gap-10 rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur md:grid-cols-[1.4fr_1fr] md:p-12">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[var(--gold)]/40 bg-[var(--gold)]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-[var(--gold)]">
+            {/* <div className="inline-flex items-center gap-2 rounded-full border border-[var(--gold)]/40 bg-[var(--gold)]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-[var(--gold)]">
               <Zap className="h-3 w-3" /> What We Do
-            </div>
+            </div> */}
             <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight md:text-5xl">
               We Build Virtual Tours You Can{" "}
-              <span className="gold-text italic">Post Instantly</span> To Social Media.
+              <span className="gold-text">Post Instantly</span> To Social Media.
             </h2>
             <p className="mt-5 max-w-xl text-base text-white/70 md:text-lg">
               One link. Share it on WhatsApp, Facebook, Instagram, Airbnb, and your website — and watch engagement climb.
@@ -424,7 +424,7 @@ function Stats() {
           <h2 className="mt-4 font-display text-4xl font-bold tracking-tight md:text-5xl">
             Already Standard Worldwide.
             <br />
-            <span className="gold-text italic">Now Available In Zambia.</span>
+            <span className="gold-text ">Now Available In Zambia.</span>
           </h2>
         </div>
         <div className="mt-16 grid gap-6 md:grid-cols-3">
@@ -479,7 +479,7 @@ function Gallery() {
               Demo Gallery
             </p>
             <h2 className="mt-3 font-display text-4xl font-bold tracking-tight md:text-5xl">
-              Explore More Tours
+              Explore Our Tours
             </h2>
           </div>
 
@@ -571,7 +571,7 @@ function Pricing() {
             Pricing
           </p>
           <h2 className="mt-4 font-display text-4xl font-bold tracking-tight md:text-5xl">
-            Less Than The Value Of A <span className="gold-text italic">Single Booking</span>
+            Less Than The Value Of A <span className="gold-text ">Single Booking</span>
           </h2>
         </div>
 
@@ -607,7 +607,7 @@ function Pricing() {
             <p className="text-xs uppercase tracking-[0.2em] text-[var(--gold)]">
               Professional Property Tour
             </p>
-            <p className="mt-4 text-sm italic text-white/70">
+            <p className="mt-4 text-sm  text-white/70">
               Less than the value of one booking.
             </p>
             <div className="mt-2">
@@ -684,7 +684,7 @@ function WhyNow() {
     <section className="bg-[var(--secondary)] py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <h2 className="mx-auto max-w-3xl text-center font-display text-4xl font-bold tracking-tight md:text-5xl">
-          Don't Let Great Properties Look <span className="italic text-[var(--muted-foreground)]">Ordinary</span> Online
+          Don't Let Great Properties Look <span className=" text-[var(--muted-foreground)]">Ordinary</span> Online
         </h2>
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((t, i) => (
@@ -718,7 +718,7 @@ function FinalCTA() {
         </p>
         <h2 className="mt-6 font-display text-4xl font-bold leading-tight tracking-tight md:text-6xl">
           See Your Property{" "}
-          <span className="gold-text italic">As An Interactive Tour</span>
+          <span className="gold-text ">As An Interactive Tour</span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg text-white/70">
           Free demo, no obligation. We come to you and show you exactly what
@@ -984,7 +984,7 @@ function ShareScreenshots() {
             One Link. Every Platform.
           </p>
           <h2 className="mt-4 font-display text-4xl font-bold tracking-tight md:text-5xl">
-            Share Your Tour Where Guests Already <span className="gold-text italic">Scroll</span>
+            Share Your Tour Where Guests Already <span className="gold-text ">Scroll</span>
           </h2>
         </div>
 
@@ -1065,7 +1065,7 @@ function Testimonial() {
     <section className="bg-[var(--ink)] py-24 text-white md:py-28">
       <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
         <Quote className="mx-auto h-10 w-10 text-[var(--gold)]" />
-        <p className="mt-6 font-display text-2xl font-medium italic leading-snug md:text-3xl">
+        <p className="mt-6 font-display text-2xl font-medium  leading-snug md:text-3xl">
           "The moment I sent the link to a guest on WhatsApp, they replied
           within minutes asking to book. It feels like having a private open
           house running 24/7."
@@ -1124,9 +1124,9 @@ function Index() {
     <main className="bg-background">
       <Hero />
       <KeyOffer />
-      <PerfectFor />
-      <WhyUs />
-      <BeforeAfter />
+      {/* <PerfectFor /> */}
+      {/* <WhyUs /> */}
+      {/* <BeforeAfter /> */}
       <ShareScreenshots />
       <Stats />
       <Gallery />
