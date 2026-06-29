@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import luxuryImg from "@/assets/luxury-guest-house.jpg";
 import deluxImg from "@/assets/delux-rental.png";
+import gardenResort from "@/assets/garden-resort.png.asset.json";
 import old1 from "@/assets/old-1.jpg";
 import old2 from "@/assets/old-2.jpg";
 import old3 from "@/assets/old-3.jpg";
@@ -469,6 +470,11 @@ function Gallery() {
       title: "Delux Rental",
       url: "https://msimbao.github.io/tourdemos/umodoro-demo-1/app-files/index.html",
     },
+    {
+      img: gardenResort.url,
+      title: "Luxury Garden Resort",
+      url: "https://msimbao.github.io/tourdemos/umodoro-demo-4/app-files/index.html",
+    },
   ];
   return (
     <section id="tours" className="bg-background py-24 md:py-32">
@@ -484,7 +490,7 @@ function Gallery() {
           </div>
 
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {tours.map((t) => (
             <a
               key={t.title}
