@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import luxuryImg from "@/assets/luxury-guest-house.jpg";
 import deluxImg from "@/assets/delux-rental.png";
+import gardenResort from "@/assets/garden-resort.png.asset.json";
 import old1 from "@/assets/old-1.jpg";
 import old2 from "@/assets/old-2.jpg";
 import old3 from "@/assets/old-3.jpg";
