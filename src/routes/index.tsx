@@ -470,6 +470,11 @@ function Gallery() {
       title: "Delux Rental",
       url: "https://msimbao.github.io/tourdemos/umodoro-demo-1/app-files/index.html",
     },
+    {
+      img: gardenResort.url,
+      title: "Luxury Garden Resort",
+      url: "https://msimbao.github.io/tourdemos/umodoro-demo-4/app-files/index.html",
+    },
   ];
   return (
     <section id="tours" className="bg-background py-24 md:py-32">
